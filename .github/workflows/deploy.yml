@@ -2,13 +2,29 @@ name: Deploy to Cloudflare Workers
 
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
+      - prod
+
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
 
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      pull-requests: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -25,6 +41,38 @@ jobs:
         run: pnpm run build
 
       - name: Deploy Worker
+        if: github.ref == 'refs/heads/prod'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --tag="${{ github.ref_name }}"
+
+      - name: Deploy Staging Worker
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: versions upload --tag="${{ github.ref_name }}" --preview-alias="staging"
+
+      - name: Deploy PR Preview Worker
+        if: github.event_name == 'pull_request'
+        id: deploy_docs
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: versions upload --tag="${{ github.head_ref }}" --preview-alias="pr-${{ github.event.pull_request.number }}" --message="${{ github.event.pull_request.title }}"
+
+      - name: Post PR Comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v9
+        env:
+          PREVIEW_URL: ${{ steps.deploy_docs.outputs.deployment-url }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 **Preview Deployed!**\n\nTake a peek over at: ${process.env.PREVIEW_URL}`
+            })
