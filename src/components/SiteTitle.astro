@@ -2,24 +2,15 @@
 import logo from '@assets/logo.png';
 import { Image } from 'astro:assets';
 
-const main = 'https://p3dual.com/';
 const self = '/';
 ---
 
 <div class="flex items-center gap-4">
-  <a href={main} class="group flex">
+  <a href={self} class="group flex">
     <Image
       src={logo}
       alt="Persona 3 Dual"
       class="h-[calc(var(--sl-nav-height)-2*var(--sl-nav-pad-y))] w-auto transition-transform duration-75 group-hover:-translate-y-1"
     />
-  </a>
-
-  <a href={self} class="group flex no-underline">
-    <span
-      class="text-2xl font-bold text-(--sl-color-text-accent) transition-transform duration-75 group-hover:-translate-y-1"
-    >
-      Docs
-    </span>
   </a>
 </div>
