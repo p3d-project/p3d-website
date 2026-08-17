@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Workers
 on:
   push:
     branches:
-      - main
+      - master
       - prod
 
   pull_request:
@@ -48,7 +48,7 @@ jobs:
           command: deploy --tag="${{ github.ref_name }}"
 
       - name: Deploy Staging Worker
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
