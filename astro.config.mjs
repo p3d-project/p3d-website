@@ -52,18 +52,6 @@ export default defineConfig({
           items: [{ autogenerate: { directory: 'milestones' } }],
         },
         {
-          label: 'P3D-Amicitia',
-          items: [{ autogenerate: { directory: 'p3d-amicitia' } }],
-        },
-        {
-          label: 'P3D-Game',
-          items: [{ autogenerate: { directory: 'p3d-game' } }],
-        },
-        {
-          label: 'P3D-Website',
-          items: [{ autogenerate: { directory: 'p3d-website' } }],
-        },
-        {
           label: 'References',
           items: [{ autogenerate: { directory: 'references' } }],
         },

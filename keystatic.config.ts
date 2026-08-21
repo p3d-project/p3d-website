@@ -106,27 +106,6 @@ export default config({
       format: { contentField: 'content' },
       schema: collectionSchema,
     }),
-    p3d_amicitia: collection({
-      label: 'P3D-Amicitia',
-      slugField: 'title',
-      path: 'src/content/docs/p3d-amicitia/**',
-      format: { contentField: 'content' },
-      schema: collectionSchema,
-    }),
-    p3d_game: collection({
-      label: 'P3D-Game',
-      slugField: 'title',
-      path: 'src/content/docs/p3d-game/**',
-      format: { contentField: 'content' },
-      schema: collectionSchema,
-    }),
-    p3d_website: collection({
-      label: 'P3D-Website',
-      slugField: 'title',
-      path: 'src/content/docs/p3d-website/**',
-      format: { contentField: 'content' },
-      schema: collectionSchema,
-    }),
     references: collection({
       label: 'References',
       slugField: 'title',
