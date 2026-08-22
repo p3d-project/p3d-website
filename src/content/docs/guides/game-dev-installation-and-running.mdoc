@@ -1,8 +1,7 @@
 ---
-title: Game-Dev Installation & Running 
+title: Game Dev Installation & Running
 tableOfContents: true
 ---
-
 *> Note: This setup only works for* [*persona-3-dual*](https://github.com/p3d-project/persona-3-dual) *and* [*aegis-engine*](https://github.com/p3d-project/aegis-engine)*.* [*p3d-amicitia*](https://github.com/p3d-project/p3d-amicitia) *dev setup is NOT covered.*
 
 The team uses **melonDS** for testing, **VS Code** as the development IDE, & **Docker** as the development environment.
@@ -29,13 +28,23 @@ You need to have [melonDS](https://melonds.kuribo64.net/), [VS Code](https://cod
 
 ### persona-3-dual
 
-git clone --recurse-submodules https://github.com/p3d-project/persona-3-dual.git\
+```
+git clone --recurse-submodules https://github.com/p3d-project/persona-3-dual.git
+```
+
+```
 cd persona-3-dual
+```
 
 ### aegis-engine
 
-git clone --recurse-submodules https://github.com/p3d-project/aegis-engine.git\
+```
+git clone --recurse-submodules https://github.com/p3d-project/aegis-engine.git
+```
+
+```
 cd aegis-engine
+```
 
 ## 2. Set Up Code Formatting
 
@@ -43,15 +52,17 @@ This project uses [pre-commit](https://pre-commit.com) to auto-format all source
 
 Install pre-commit:
 
-\# macOS\
-brew install pre-commit\
-\
-\# Windows / Linux\
-pip install pre-commit
+\# macOS
+
+```
+brew install pre-commit# Windows / Linuxpip install pre-commit
+```
 
 Register the hooks:
 
+```
 pre-commit install
+```
 
 That's it. Hooks run automatically every time you run git commit.
 
@@ -61,7 +72,9 @@ The hooks reformat your staged files in-place. If any file is changed, the commi
 
 **Run hooks manually (e.g. before opening a PR):**
 
+```
 pre-commit run --all-files
+```
 
 \> **Windows note:** prettier requires Node.js. pre-commit downloads a local copy automatically the first time you run pre-commit install or pre-commit run.
 
