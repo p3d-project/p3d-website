@@ -57,9 +57,63 @@ The usage of AI tools is permitted **if used responsibly,** to be more precise u
 
 ---
 
-## Installation & Running
+## Tools & Setup
 
-Please check out [Web Dev Install & Running](https://docs.p3dual.com/guides/installations/webDev-install-running) for instructions.
+The team uses [**VS Code**](https://code.visualstudio.com/) as the development IDE, & [**Node.js**](https://nodejs.org) as the JavaScript runtime environment.
+
+The setup for all Web Dev repos are the same. Just ensure that you **pull the correct repo!**
+
+---
+
+### Prerequisites
+
+You need to have [VS Code](https://code.visualstudio.com/), [Node.js](https://nodejs.org), & [pnpm](https://pnpm.io/) already installed on your system.
+
+### 1. Clone the Repo
+
+#### p3d-web
+
+```
+git clone https://github.com/p3d-project/p3d-web.git
+```
+
+```
+cd p3d-web
+```
+
+#### p3d-docs
+
+```
+git clone https://github.com/p3d-project/p3d-docs.git
+```
+
+```
+cd p3d-docs
+```
+
+### 2 Install Dependencies
+
+```
+pnpm install
+```
+
+### 3. Run the site
+
+#### Build for development
+
+```
+pnpm run dev
+```
+
+You should keep an eye out on the terminal for your dev url. By default, it should be `http://localhost:4321` by default.
+
+#### Build for production
+
+```
+pnpm run build
+```
+
+You are now ready to code!
 
 ---
 
