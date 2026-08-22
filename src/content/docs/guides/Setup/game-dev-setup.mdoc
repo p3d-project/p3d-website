@@ -1,10 +1,12 @@
 ---
-title: Game Dev Installation & Running
+title: Game Dev Setup
 tableOfContents: true
 ---
-*> Note: This setup only works for* [*persona-3-dual*](https://github.com/p3d-project/persona-3-dual) *and* [*aegis-engine*](https://github.com/p3d-project/aegis-engine)*.* [*p3d-amicitia*](https://github.com/p3d-project/p3d-amicitia) *dev setup is NOT covered.*
+> Note: This setup only works for [*persona-3-dual*](https://github.com/p3d-project/persona-3-dual) *and* [*aegis-engine*](https://github.com/p3d-project/aegis-engine)*.* [*p3d-amicitia*](https://github.com/p3d-project/p3d-amicitia) *dev setup is NOT covered.*
 
 The team uses **melonDS** for testing, **VS Code** as the development IDE, & **Docker** as the development environment.
+
+---
 
 ## Prerequisites
 
@@ -23,6 +25,8 @@ You need to have [melonDS](https://melonds.kuribo64.net/), [VS Code](https://cod
 ### Docker
 
 - Ensure that Docker is launched & runningDocker needs to be running whenever you want to code
+
+---
 
 ## 1. Clone the Repo
 
@@ -76,7 +80,7 @@ The hooks reformat your staged files in-place. If any file is changed, the commi
 pre-commit run --all-files
 ```
 
-\> **Windows note:** prettier requires Node.js. pre-commit downloads a local copy automatically the first time you run pre-commit install or pre-commit run.
+> **Windows note:** prettier requires Node.js. pre-commit downloads a local copy automatically the first time you run pre-commit install or pre-commit run.
 
 ## 3. Open the repo in VS Code
 
@@ -85,6 +89,8 @@ Open the persona-3-dual repo in VS Code. Then, click the bottom left >< icon & s
 You may also see a notification on the bottom right to Reopen in Container. This method also works!  If this is your first time launching the container, it may take a few minutes for Docker to install the image. Otherwise, VS Code should re-launch within a few seconds.
 
 You are now ready to code!
+
+---
 
 ## Building
 
@@ -104,7 +110,11 @@ Error opening input files: Invalid data found when processing input
 
 Its most likely due to non pulled LFS media. Pull it with
 
+```
 git lfs pull
+```
+
+---
 
 ## Debugging
 
