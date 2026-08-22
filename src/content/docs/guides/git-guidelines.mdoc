@@ -1,0 +1,73 @@
+---
+title: Git Guidelines
+tableOfContents: true
+---
+Guidelines for commits, PR's, and issues. Applicable to Game Dev & Web Dev teams
+
+## Commits
+
+Commits must follow the following documentation
+
+| Resource | Link | Description |
+| ----- | ----- | ----- |
+| Commit Guideline | [https://google.github.io/eng-practices/review/developer/cl-descriptions.html](https://google.github.io/eng-practices/review/developer/cl-descriptions.html)  | Google CL Guideline |
+
+### Example
+
+See [https://google.github.io/eng-practices/review/developer/cl-descriptions.html\#good](https://google.github.io/eng-practices/review/developer/cl-descriptions.html#good)   
+**Please CAPTILIZE your commit messages\!**  
+```this is incorrect``` ➞ ```This is correct!```
+
+## Contributing
+
+When you want to contribute to a repo, clone the main repo & make a branch (**don’t fork the repo\!**).
+
+Categorize your branches under the following sections
+
+| Branch Folder | Description |
+| ----- | ----- |
+| features/ | Feature work |
+| tasks/ | Task work |
+| bugs/ | Bug fixes |
+| releases/ | Milestone releases |
+| docs/ | Documentation changes |
+
+Ensure that the branch's name is all lowercase and follows kebab-case
+
+## Deployments
+
+Code deployment is organized into various branches. These conventions depend on the situation and the repo.
+
+| Repo | Branch Folder | Description |
+| ----- | ----- | ----- |
+| All | main or master | Staging deployments/latest changes |
+| p3d-web, p3d-docs | prod | Production deployments |
+| persona-3-dual | releases/ | Milestone releases |
+| All | tester/ | Specific tester changes |
+
+## PRs
+
+When creating a PR, the following template will appear which should be filled out accordingly.  
+ 
+
+| Resource | Link | Description |
+| ----- | ----- | ----- |
+| PR Template | [https://github.com/p3d-project/.github/blob/main/PULL\_REQUEST\_TEMPLATE.md](https://github.com/p3d-project/.github/blob/main/PULL_REQUEST_TEMPLATE.md) | Organization-wide standardized PR template  |
+
+### Example
+
+See [https://github.com/p3d-project/persona-3-dual/pull/337](https://github.com/p3d-project/persona-3-dual/pull/337) 
+
+## Issues
+
+[https://p3dual.com/docs/onboarding/\#creating-a-new-issue](https://p3dual.com/docs/onboarding/#creating-a-new-issue)  
+**TLDR: New issues must be placed in the “New” tab** so that they can get reviewed first
+
+* Feel free to create issues anytime but keep them under New until approved  
+* Only use the Feature request & Bug report templates  
+* Make sure you select the correct repo to make an issue under
+
+{% SizedImage
+   src="/docs/imgs/onboarding/create-issue.png"
+   alt="debug"
+   width=700 /%}
