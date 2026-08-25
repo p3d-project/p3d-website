@@ -1,0 +1,216 @@
+---
+title: Game Dev Team Onboarding
+tableOfContents: true
+---
+Hello, my name is **Nolan Kolb** **(@themoonwalker8692** **on Discord)**, and I am the **Team Leader for the Game Dev Team**!
+
+Before continuing with this doc, please read the [General Onboarding Document](/guides/onboardings/general-onboarding/).
+
+---
+
+## What We Do
+
+The Game-Dev team is responsible for **designing**, **architecting** and **programming** various game & game-related codebases.
+
+### [persona-3-dual](https://github.com/p3d-project/persona-3-dual)
+
+Persona 3 Dual is the actual game itself, developed in C++. The game itself is built with our in-house [aegis-engine](https://github.com/p3d-project/aegis-engine). At the moment, we use [BlocksDS](https://github.com/blocksds) as our SDK. To interact with DS hardware, we use the [libnds](https://github.com/blocksds/libnds) library.
+
+### [aegis-engine](https://github.com/p3d-project/aegis-engine)
+
+Aegis Engine is a lightweight, strictly-bounded C++17 Entity-Component (EC) and Data-Oriented Design (DOD) hybrid game framework. For more info on the engine, read the [Game Engine HLD](https://docs.google.com/document/d/1RI2pFOg7beHi7wEt5EKOQnoMa6QWaoTPA3Q9G6Cc37g/edit?tab=t.0#heading=h.4xosolf5gc6j).
+
+### [p3d-amicitia](https://github.com/p3d-project/p3d-amicitia)
+
+P3D Amicitia (a fork of [Amicitia](https://github.com/tge-was-taken/Amicitia)) is an editor for file formats used in Atlus' Persona games, modified by member(s) of the P3D team in hopes of an easier workflow
+
+---
+
+## Contributions
+
+Before contributing, please read our [**Git Guidelines**](/references/git-guidelines/). Any contributions that do not follow these guidelines will **NOT be accepted**!
+
+The process of assigning tasks is self-directed. You'll need to select a task from the [GitHub Project Board](https://github.com/orgs/p3d-project/projects/1/views/1) under **“Ready”** & assign yourself. Sometimes, team leads will ask you to do some issues as well.
+
+Once you have finished, please share photos/videos/PR of the completed issues to the #game-dev-lounge for feedback. Once we've given the OK, you can upload the files to the Game Dev team’s folder in [Google Drive](https://drive.google.com/drive/folders/1cOLP6OKgbP4a61SaZmC55JoCkmPwI8xY?usp=sharing) if relevant.
+
+Make sure that you strictly follow the [Roadmap](https://docs.google.com/document/d/1VUxY2xVGtKzGWCES0VeZ_-vMpKSifB5vTW2ZkXJMPJM/edit?usp=sharing). If you want to work on an issue that isn’t on the roadmap, make sure you get approval from the team lead (**themoonwalker8692**) or the project lead (thebosst). If you want to work on an issue that IS on the [Roadmap](https://docs.google.com/document/d/1VUxY2xVGtKzGWCES0VeZ_-vMpKSifB5vTW2ZkXJMPJM/edit?usp=sharing), find the associated GitHub issue! If you can’t find it, feel free to make a new issue under the “New” tab.
+
+All new Game Dev team members must also read [Game Dev Team Reference](/references/game-dev-team-reference/).
+
+---
+
+## AI Usage Policy
+
+The usage of AI tools is permitted **if used responsibly,** to be more precise under these conditions:
+
+- You designed the core idea. AI can help you implement or refine it, not invent it for you.
+- You understand it. If you can't explain what the code does, it doesn't belong in a PR.
+- No slop. Generated code must be clean, logical, and intentional.
+
+---
+
+## Tools & Setup
+
+> Note: This setup only works for [*persona-3-dual*](https://github.com/p3d-project/persona-3-dual) *and* [*aegis-engine*](https://github.com/p3d-project/aegis-engine)*.* [*p3d-amicitia*](https://github.com/p3d-project/p3d-amicitia) *dev setup is NOT covered.*
+
+The team uses **melonDS** for testing, **VS Code** as the development IDE, & **Docker** as the development environment.
+
+---
+
+### Prerequisites
+
+You need to have [melonDS](https://melonds.kuribo64.net/), [VS Code](https://code.visualstudio.com/), & [Docker](https://www.docker.com/) already installed on your system.
+
+#### melonDS
+
+- Go to Config → Emu settings → Devtools
+- Ensure Enable GDB stub is checked
+- Ensure the ARM9 port is 2345 & Break on startup is checkedWhen debugging, ensure that melonDS is already launched
+
+#### VS Code
+
+- Ensure that the Dev Containers extension is installed
+
+#### Docker
+
+- Ensure that Docker is launched & runningDocker needs to be running whenever you want to code
+
+---
+
+### 1. Clone the Repo
+
+#### persona-3-dual
+
+```
+git clone --recurse-submodules https://github.com/p3d-project/persona-3-dual.git
+```
+
+```
+cd persona-3-dual
+```
+
+#### aegis-engine
+
+```
+git clone --recurse-submodules https://github.com/p3d-project/aegis-engine.git
+```
+
+```
+cd aegis-engine
+```
+
+### 2. Set Up Code Formatting
+
+This project uses [pre-commit](https://pre-commit.com) to auto-format all source files before every commit. It handles C/C++ (clang-format), Python (black + ruff), and web files (prettier).
+
+Install pre-commit:
+
+\# macOS
+
+```
+brew install pre-commit# Windows / Linuxpip install pre-commit
+```
+
+Register the hooks:
+
+```
+pre-commit install
+```
+
+That's it. Hooks run automatically every time you run git commit.
+
+**What happens during a commit:**
+
+The hooks reformat your staged files in-place. If any file is changed, the commit is **aborted** so you can review the diff. Just re-stage and commit again.
+
+**Run hooks manually (e.g. before opening a PR):**
+
+```
+pre-commit run --all-files
+```
+
+> **Windows note:** prettier requires Node.js. pre-commit downloads a local copy automatically the first time you run pre-commit install or pre-commit run.
+
+### 3. Open the repo in VS Code
+
+Open the persona-3-dual repo in VS Code. Then, click the bottom left >< icon & select Reopen in Container
+
+You may also see a notification on the bottom right to Reopen in Container. This method also works!  If this is your first time launching the container, it may take a few minutes for Docker to install the image. Otherwise, VS Code should re-launch within a few seconds.
+
+You are now ready to code!
+
+---
+
+### Building
+
+To build, simply use make. If you do not need to update the SD card image, use make SKIPSD=1
+
+If this error appears
+
+[in#0 @ 000001fea6e491c0] Format mov,mp4,m4a,3gp,3g2,mj2 detected only with low score of 1, misdetection possible!
+
+[in#0 @ 000001fea6e491c0] moov atom not found
+
+[in#0 @ 000001fea6e48f80] Error opening input: Invalid data found when processing input
+
+Error opening input file C:/p3d/persona-3-dual/assets/video/base.mp4.
+
+Error opening input files: Invalid data found when processing input
+
+Its most likely due to non pulled LFS media. Pull it with
+
+```
+git lfs pull
+```
+
+---
+
+### Debugging
+
+Ensure melonDS is already launched & awaiting the debugger
+
+- Build in debug mode (you can use the make debug task or just open a terminal inside the container and run make DEBUG=1)
+- In VS Code, go to the Run and Debug tab on the left panel, and select [Docker] (gdb) Connect to melonDS
+
+You are now ready to debug!
+
+If you are unable to connect the debugger to melonDS, ensure that melonDS is launched WITH THE GAME & has the below settings configured
+
+{% SizedImage
+   src="/docs/imgs/onboarding/melonds-debug.png"
+   alt="debug"
+   width=350 /%}
+
+---
+
+## Writing Documentation
+
+Please check out our[ Writing Documentation section](https://docs.google.com/document/d/1VFd1PVnq54xNJtYytFMzO0MBaeUISCHVfw2-U37n3Lw/edit?tab=t.0#heading=h.7oc7zk9poliw) in the Game Dev Reference .
+
+---
+
+## Quick Links
+
+### Repositories
+
+- [persona-3-dual](https://github.com/p3d-project/persona-3-dual)
+- [aegis-engine](https://github.com/p3d-project/aegis-engine)
+- [p3d-amicitia](https://github.com/p3d-project/p3d-amicitia)
+
+### Assets
+
+- [Game Dev Google Drive](https://drive.google.com/drive/folders/1cOLP6OKgbP4a61SaZmC55JoCkmPwI8xY?usp=sharing)
+
+### Docs
+
+- [Game Dev Team Reference](/references/game-dev-team-reference/)
+- [Codebase Documentation](https://persona-3-dual.p3dual.com/)
+
+For more technical documentation, check out the links section from the [Game Dev Team Reference](/references/game-dev-team-reference/). All docs can be found on this [docs.p3dual.com](/), which pulls files from [p3d-docs](https://github.com/p3d-project/p3d-docs) and the shared [P3D Project - Team](https://drive.google.com/drive/u/0/folders/1MS2eOnHn5RiMcLRfc8K1s2ZR8FcY3tgq) Google Drive
+
+---
+
+## Questions
+
+If there are any questions, ping Game Dev lead @TheMoonWalker8692 on Discord in the #team-general or #game-dev-lounge channel depending on the question. Alternatively, @thebosst can be pinged if the former is not reachable.
