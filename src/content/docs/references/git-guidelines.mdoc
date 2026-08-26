@@ -10,33 +10,59 @@ Guidelines for commits, PR's, and issues. Applicable to Game Dev & Web Dev teams
 
 Commits must follow the following documentation
 
-| Resource | Link | Description |
-| ----- | ----- | ----- |
-| Commit Guideline | [https://google.github.io/eng-practices/review/developer/cl-descriptions.html](https://google.github.io/eng-practices/review/developer/cl-descriptions.html)  | Google CL Guideline |
+{% table %}
+- Resource
+- Link
+- Description
+---
+- Commit Guideline
+- [https://google.github.io/eng-practices/review/developer/cl-descriptions.html](https://google.github.io/eng-practices/review/developer/cl-descriptions.html)
+- Google CL Guideline
+{% /table %}
 
 ### Example
 
-See [https://google.github.io/eng-practices/review/developer/cl-descriptions.html\#good](https://google.github.io/eng-practices/review/developer/cl-descriptions.html#good)   
-**Please CAPTILIZE your commit messages\!**  
-```this is incorrect``` ➞ ```This is correct!```
+See [https://google.github.io/eng-practices/review/developer/cl-descriptions.html#good](https://google.github.io/eng-practices/review/developer/cl-descriptions.html#good)\
+**Please CAPTILIZE your commit messages!**\
+`this is incorrect` ➞ `This is correct!`
 
 ---
 
 ## Contributing
 
-When you want to contribute to a repo, clone the main repo & make a branch (**don’t fork the repo\!**).
+When you want to contribute to a repo, clone the main repo & make a branch (**don’t fork the repo!**).
 
 Categorize your branches under the following sections
 
-| Branch Folder | Description |
-| ----- | ----- |
-| features/ | Feature work |
-| tasks/ | Task work |
-| bugs/ | Bug fixes |
-| releases/ | Milestone releases |
-| docs/ | Documentation changes |
+{% table %}
+- Branch Folder
+- Description
+---
+- features/
+- Feature work
+---
+- tasks/
+- Task work
+---
+- bugs/
+- Bug fixes
+---
+- releases/
+- Milestone releases
+---
+- docs/
+- Documentation changes
+{% /table %}
 
 Ensure that the branch's name is all lowercase and follows kebab-case
+
+### Merging Contibutions
+
+The team merges contributions using two methods:
+
+**Rebase & merge**: the standard way to merge changes
+
+**Squash & merge**: for overly messy PRs (ex. CI/CD testing)
 
 ---
 
@@ -44,37 +70,58 @@ Ensure that the branch's name is all lowercase and follows kebab-case
 
 Code deployment is organized into various branches. These conventions depend on the situation and the repo.
 
-| Repo | Branch Folder | Description |
-| ----- | ----- | ----- |
-| All | main or master | Staging deployments/latest changes |
-| p3d-web, p3d-docs | prod | Production deployments |
-| persona-3-dual | releases/ | Milestone releases |
-| All | tester/ | Specific tester changes |
+{% table %}
+- Repo
+- Branch Folder
+- Description
+---
+- All
+- main or master
+- Staging deployments/latest changes
+---
+- p3d-web, p3d-docs
+- prod
+- Production deployments
+---
+- persona-3-dual
+- releases/
+- Milestone releases
+---
+- All
+- tester/
+- Specific tester changes
+{% /table %}
 
 ---
 
 ## PRs
 
-When creating a PR, the following template will appear which should be filled out accordingly.  
- 
-| Resource | Link | Description |
-| ----- | ----- | ----- |
-| PR Template | [https://github.com/p3d-project/.github/blob/main/PULL\_REQUEST\_TEMPLATE.md](https://github.com/p3d-project/.github/blob/main/PULL_REQUEST_TEMPLATE.md) | Organization-wide standardized PR template  |
+When creating a PR, the following template will appear which should be filled out accordingly.
+
+{% table %}
+- Resource
+- Link
+- Description
+---
+- PR Template
+- [https://github.com/p3d-project/.github/blob/main/PULL_REQUEST_TEMPLATE.md](https://github.com/p3d-project/.github/blob/main/PULL_REQUEST_TEMPLATE.md)
+- Organization-wide standardized PR template
+{% /table %}
 
 ### Example
 
-See [https://github.com/p3d-project/persona-3-dual/pull/337](https://github.com/p3d-project/persona-3-dual/pull/337) 
+See [https://github.com/p3d-project/persona-3-dual/pull/337](https://github.com/p3d-project/persona-3-dual/pull/337)
 
 ---
 
 ## Issues
 
-[https://p3dual.com/docs/onboarding/\#creating-a-new-issue](https://p3dual.com/docs/onboarding/#creating-a-new-issue)  
+[https://p3dual.com/docs/onboarding/#creating-a-new-issue](https://p3dual.com/docs/onboarding/#creating-a-new-issue)\
 **TLDR: New issues must be placed in the “New” tab** so that they can get reviewed first
 
-* Feel free to create issues anytime but keep them under New until approved  
-* Only use the Feature request & Bug report templates  
-* Make sure you select the correct repo to make an issue under
+- Feel free to create issues anytime but keep them under New until approved
+- Only use the Feature request & Bug report templates
+- Make sure you select the correct repo to make an issue under
 
 {% SizedImage
    src="/docs/imgs/onboarding/create-issue.png"
