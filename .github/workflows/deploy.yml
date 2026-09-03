@@ -58,9 +58,11 @@ jobs:
         if: github.event_name == 'pull_request'
         id: deploy_docs
         uses: cloudflare/wrangler-action@v3
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: versions upload --tag="${{ github.head_ref }}" --preview-alias="pr-${{ github.event.pull_request.number }}" --message="${{ github.event.pull_request.title }}"
+          command: versions upload --tag="${{ github.head_ref }}" --preview-alias="pr-${{ github.event.pull_request.number }}" --message="$PR_TITLE"
 
       - name: Post PR Comment
         if: github.event_name == 'pull_request'
