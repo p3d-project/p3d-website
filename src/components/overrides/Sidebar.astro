@@ -1,0 +1,29 @@
+---
+import Search from '@astrojs/starlight/components/Search.astro';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
+import SiteTitle from './SiteTitle.astro';
+import MobileMenuFooter from '@astrojs/starlight/components/MobileMenuFooter.astro';
+
+const { sidebar } = Astro.locals.starlightRoute;
+---
+
+<div class="sidebar-top max-sidebar:hidden -mb-4">
+  <div class="pb-4">
+    <SiteTitle />
+  </div>
+
+  <Search />
+
+  <div class="max-sidebar:hidden px-2">
+    <MobileMenuFooter />
+  </div>
+</div>
+
+<SidebarPersister>
+  <SidebarSublist sublist={sidebar} />
+</SidebarPersister>
+
+<div class="sidebar:hidden">
+  <MobileMenuFooter />
+</div>

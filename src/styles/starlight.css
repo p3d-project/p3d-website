@@ -26,6 +26,9 @@
 }
 
 @theme {
+  --breakpoint-sidebar: 50em;
+  --breakpoint-page-sidebar: 72em;
+
   /* Created with: https://starlight.astro.build/guides/css-and-tailwind/#color-theme-editor */
   --color-accent-200: #aad5b4;
   --color-accent-600: #007b3d;
@@ -74,4 +77,20 @@ main h5 {
 main {
   font-family: 'MgOpen Cosmetica', sans-serif;
   font-size: 18px;
+}
+
+@media (width >= 50em) {
+  :root {
+    --sl-nav-height: 0;
+  }
+
+  .main-pane {
+    padding-top: 48px;
+  }
+}
+
+@media (width >= 72em) {
+  .main-pane {
+    padding-top: 0;
+  }
 }
