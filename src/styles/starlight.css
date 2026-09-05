@@ -3,3 +3,75 @@
 @import '@astrojs/starlight-tailwind';
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
+
+@font-face {
+  font-family: 'BM Space';
+  src: url('@assets/fonts/BM_Space.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MgOpen Cosmetica';
+  src: url('@assets/fonts/MgOpen_Cosmetica-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Japanese';
+  src: url('@assets/fonts/NotoSansJP-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  /* Created with: https://starlight.astro.build/guides/css-and-tailwind/#color-theme-editor */
+  --color-accent-200: #aad5b4;
+  --color-accent-600: #007b3d;
+  --color-accent-900: #003e1c;
+  --color-accent-950: #032c14;
+
+  --color-gray-100: #f6f6f6;
+  --color-gray-200: #eeeeee;
+  --color-gray-300: #c2c2c2;
+  --color-gray-400: #8b8b8b;
+  --color-gray-500: #585858;
+  --color-gray-700: #383838;
+  --color-gray-800: #272727;
+  --color-gray-900: #181818;
+}
+
+main h1 {
+  font-family: 'BM Space', sans-serif;
+  font-size: 54.9px;
+}
+
+main h2 {
+  font-family: 'Noto Sans Japanese', sans-serif;
+  font-weight: 900;
+  font-size: 43.9px;
+}
+
+main h3 {
+  font-family: 'Noto Sans Japanese', sans-serif;
+  font-weight: 800;
+  font-size: 35.2px;
+}
+
+main h4 {
+  font-family: 'Noto Sans Japanese', sans-serif;
+  font-weight: 600;
+  font-size: 28.1px;
+}
+
+main h5 {
+  font-family: 'MgOpen Cosmetica', sans-serif;
+  font-weight: 400;
+  font-size: 22.5px;
+}
+
+main {
+  font-family: 'MgOpen Cosmetica', sans-serif;
+  font-size: 18px;
+}
