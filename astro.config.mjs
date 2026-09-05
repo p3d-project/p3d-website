@@ -17,6 +17,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Docs',
+      favicon: '/favicon.ico',
       // https://starlight.astro.build/reference/icons/
       social: [
         {
